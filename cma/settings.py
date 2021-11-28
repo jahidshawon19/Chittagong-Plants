@@ -25,7 +25,7 @@ SECRET_KEY = '2=w94))y21$d9lzvy$4&f&i)b=g-sr2x-4sg%6ri!gf%($p1yd'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ctg-plants.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
