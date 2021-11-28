@@ -1,0 +1,92 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+	
+      <div class="container">
+
+        <div class="row py-3">
+            <div class="col-lg-4">
+              <div class="card">
+                <div class="card-header text-center text-dark font-weight-bold">Customer</div>
+                <hr>
+                <div class="card-body">
+                  <a href="{% url 'update-customer' customer.id %}" class="btn btn-primary btn-block btn-sm">Update Customer</a>
+                  <a href="{% url 'create_order' customer.id %}" class="btn btn-danger btn-block btn-sm">Place Order</a>
+                  <a href="{% url 'delete-customer' customer.id %}" class="btn btn-warning btn-block btn-sm">Delete Customer</a>
+                </div>
+              </div>
+            </div>
+             <div class="col-lg-5">
+                <div class="card">
+                <div class="card-header text-center text-dark font-weight-bold">Contact Information</div>
+                <hr>
+                <div class="card-body">
+                  <strong>Name:</strong><h6>{{customer.name}}</h6>
+                 <strong>Phone:</strong><h6>{{customer.phone}}</h6>
+                 <strong>Location:</strong><h6>{{customer.address}}</h6>
+
+
+                </div>
+              </div>
+             </div>
+              <div class="col-lg-3">
+                     <div class="card">
+                <div class="card-header text-center text-dark font-weight-bold">Orders</div>
+                <hr>
+                <div class="card-body">
+                  <h4 class="text-center text-dark">{{orders_count}}</h4>
+                </div>
+              </div>
+              </div>
+        </div>
+
+
+          <div class="row py-3">
+            <div class="col-lg-12">
+                  <form action="" method="GET">
+                      {{myFilter.form}}
+
+                    <input class="btn btn-sm btn-primary" type="submit" value="search">
+                  </form>
+              <div class="card">
+                <div class="card-title"><button class="btn btn-dark btn-sm btn-block">Products Table</button></div>
+                <div class="card-body">
+                      <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>Product</th>
+                          <th>Category</th>
+                          <th>Date Ordered</th>
+                          <th>Delivery Time</th>
+                          <th>Status</th>
+                          <th>Update</th>
+                          <th>Delete</th>
+                   
+                        </tr>
+                      </thead>
+                      <tbody>
+                         {% for order in orders %}
+                        <tr>
+                        
+                          <td>{{order.product}}</td>
+                          <td>{{order.product.category}}</td>
+                          <td>{{order.date_created}}</td>
+                           <td>{{order.delivery_date}}</td>
+                           <td>{{order.status}}</td>
+                         <td><a href="{% url 'update_order' order.id %}" class="btn btn-primary btn-sm">Edit</td>
+                          <td><a href="{% url 'delete_order' order.id %}" class="btn btn-danger btn-sm">Remove</td>
+             
+                        </tr>
+                         {% endfor %}
+                      </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    {% endblock %}
+	
+
+
+

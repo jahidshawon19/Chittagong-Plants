@@ -1,0 +1,54 @@
+
+	{% load static %}
+
+    <nav id="sidebar">
+				<div class="custom-menu">
+        </div>
+	  		<h1 class="text-center"><a href="{% url 'home' %}" class="logo">CTG Plants</a></h1>
+        <ul class="list-unstyled components mb-5">
+          {% if user.is_authenticated %}
+          <li class="active">
+            <a href="#"><span class="fa fa-user mr-3"></span>User : {{user.username}}</a>
+          </li>
+          <li class="">
+            <a href="{% url 'home' %}"><span class="fa fa-home mr-3"></span> Dashboard</a>
+          </li>
+          <li>
+              <a href="{% url 'create_customer' %}"><span class="fa fa-plus mr-3"></span> Create Customer</a>
+          </li>
+        
+          <li>
+            <a href="{% url 'customers' %}"><span class="fa fa-users mr-3"></span> Customers</a>
+          </li>
+          
+            <li>
+            <a href="{% url 'categories' %}"><span class="fa fa-paper-plane mr-3"></span> Category</a>
+          </li>
+          
+
+            <li>
+            <a href="{% url 'create_category' %}"><span class="fa fa-paper-plane mr-3"></span> Create New Category</a>
+          </li>
+
+            <li>
+            <a href="{% url 'create_product' %}"><span class="fa fa-paper-plane mr-3"></span> Create New Product</a>
+          </li>
+          <li>
+            <a href="{% url 'products' %}"><span class="fa fa-product-hunt mr-3"></span> Products</a>
+          </li>
+
+    
+         
+           <li>
+            <a href="{% url 'logout' %}"><span class="fa fa-sign-in mr-3"></span> Logout</a>
+          </li>
+           {% else %}
+           <li>
+            <a href="#"><span class="fa fa-sign mr-3"></span> Login</a>
+          </li>
+          {% endif %}
+        </ul>
+
+    	</nav>
+
+
