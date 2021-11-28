@@ -32,6 +32,7 @@
   </div>
   <div class="card-body">
 		<form action="" method="POST">
+			<p>username: admin, pass: admin12345*</p>
 			{% csrf_token %}
 			    {{ form|crispy }}	
 		<input type="submit" class="btn btn-sm btn-danger" value="Login">
