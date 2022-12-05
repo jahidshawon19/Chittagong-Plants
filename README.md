@@ -20,4 +20,4 @@
 
 ### Live Link
 
-https://ctg-plants.herokuapp.com/accounts/login/
+coming soon ...
